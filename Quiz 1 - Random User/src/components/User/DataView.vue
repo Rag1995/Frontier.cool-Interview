@@ -86,10 +86,12 @@ div(class="container mx-auto px-4 py-8")
         span(v-else) No Data
 
     div(v-else)
-      div(class="mb-2 flex items-center justify-start gap-2")
+      div(class="text-center") 第 {{ page_ }} 頁
+      div(class="mb-2 flex flex-col sm:flex-row items-center justify-between gap-2")
         div 總共 {{ total }} 筆資料 / {{ totalPage }} 頁
-        FormPerPageSelect(v-model="per_"  class="ml-auto")
-        FormModeSelect(v-model="mode_")/
+        div(class="flex items-center gap-4")
+          FormPerPageSelect(v-model="per_")
+          FormModeSelect(v-model="mode_")/
 
       TransitionGroup(
         enter-from-class="opacity-0 scale-0 translate-x-30px"
