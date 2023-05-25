@@ -25,8 +25,8 @@ const toggle = useToggle(show)
 </script>
 
 <template lang="pug">
-BaseModal(v-model="show")
-  BaseCard(v-if="user && userId" no-shadow class="relative max-w-[560px] mx-auto")
+BaseModal(v-model="show" class="relative max-w-[560px] w-full mx-auto")
+  BaseCard(v-if="user && userId" no-shadow)
     BaseButton(
       class="absolute right-0 top-0 ml-auto p-3 text-2xl text-red-500/75 hover:text-red-500"
       @click="toggle(false)"

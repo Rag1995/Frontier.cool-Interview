@@ -14,6 +14,8 @@ const show = useVModel(props, 'modelValue', emit)
 onClickOutside(modal, () => {
   show.value = false
 })
+
+const attrs = useAttrs()
 </script>
 
 <template lang="pug">
@@ -27,6 +29,6 @@ BaseModalBackdrop(:show="show")
       leave-active-class="transition ease-in duration-300"
       leave-to-class="opacity-0 translate-y-10 scale-95"
     )
-      div(v-show="show" ref="modal")
+      div(v-show="show" ref="modal" v-bind="attrs")
         slot
 </template>
