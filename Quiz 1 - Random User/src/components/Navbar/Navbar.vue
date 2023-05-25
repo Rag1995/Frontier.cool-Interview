@@ -40,7 +40,7 @@ nav(class="flex items-center justify-start gap-8 bg-gray-800 px-6 py-4 text-whit
         :label="label"
       )/
     NavbarItem(
-      href="https://www.google.com.tw/"
+      href="https://github.com/Rag1995/Frontier.cool-Interview/tree/main/Quiz%201%20-%20Random%20User"
       target="_blank"
       icon="i-mdi-github"
       label="GitHub"
