@@ -16,8 +16,8 @@ const hasChildren = computed(() => {
 </script>
 
 <template lang="pug">
-div
-  a(type="button" class="block px-4 py-3 hover:bg-sky-200 dark:hover:bg-sky-800 cursor-pointer transition border-b border-gray-300 dark:border-gray-700" @click="toggle()")
+div()
+  a(type="button" class="flex px-4 py-3 hover:bg-sky-200 dark:hover:bg-sky-800 cursor-pointer transition border-b border-gray-300 dark:border-gray-700" @click="toggle()")
     div(
       class="pl-[var(--node-level)] flex flex-row items-center gap-1"
       :style="{'--node-level': `${level}rem`}"
@@ -33,7 +33,7 @@ div
         span(class="mr-1") :
         span(class="font-bold text-primary dark:text-primary-dark") {{ tree.value }}
 
-  template(v-if="hasChildren")
+  div(v-if="hasChildren")
     BaseCollapse(v-model="show")
       TreeItem(
         v-for="(child, index) in tree.children"

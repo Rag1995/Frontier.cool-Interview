@@ -16,7 +16,7 @@ BaseCard(class="flex flex-col")
       span(class="i-ic-round-plus")
       span Add New Pair
     
-  div(v-if="pairs.length > 0" class="flex flex-col gap-2 py-4 px-4 overflow-y-scroll")
+  div(v-if="pairs.length > 0" class="flex flex-col gap-2")
     PairInput(
       v-for="(pair, index) in pairs"
       :key="index"

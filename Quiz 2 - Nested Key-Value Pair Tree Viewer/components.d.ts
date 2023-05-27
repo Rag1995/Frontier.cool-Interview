@@ -17,6 +17,7 @@ declare module '@vue/runtime-core' {
     Navbar: typeof import('./src/components/Navbar/Navbar.vue')['default']
     NavbarBrand: typeof import('./src/components/Navbar/Brand.vue')['default']
     NavbarDarkToggler: typeof import('./src/components/Navbar/DarkToggler.vue')['default']
+    NavbarItem: typeof import('./src/components/Navbar/NavbarItem.vue')['default']
     PairInput: typeof import('./src/components/Pair/Input.vue')['default']
     PairInputGroup: typeof import('./src/components/Pair/InputGroup.vue')['default']
     PairTreeItem: typeof import('./src/components/Pair/TreeItem.vue')['default']
