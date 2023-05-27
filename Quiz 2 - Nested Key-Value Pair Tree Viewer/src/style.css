@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  @apply w-screen h-screen overflow-x-hidden bg-body text-zinc-900 dark:bg-body-dark dark:text-white;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .border-base {
+    @apply border border-zinc-500;
+  }
+}

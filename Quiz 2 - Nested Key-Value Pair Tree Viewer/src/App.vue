@@ -1,9 +1,8 @@
 <script setup lang="ts">
-//
+const input = ref('default')
 </script>
 
 <template lang="pug">
-Navbar
-div(class="pb-32 pt-4")
-  RouterView
+Layout
+  RouterView/
 </template>

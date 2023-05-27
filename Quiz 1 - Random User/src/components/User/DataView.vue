@@ -80,7 +80,7 @@ div(class="container mx-auto px-4 py-8")
   )
     div(
       v-if="total === 0"
-      class="flex justify-center py-32 text-center text-2xl font-bold text-gray-400"
+      class="flex py-32 text-center text-2xl font-bold text-gray-400 justify-center"
     )
         BaseLoader(v-if="loading")/
         span(v-else) No Data
