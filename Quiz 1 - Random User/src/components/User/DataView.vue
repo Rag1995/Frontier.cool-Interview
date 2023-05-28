@@ -68,58 +68,57 @@ UserProfileModal(
 div(class="container mx-auto px-4 py-8")
   h1(class="mb-4 text-center text-3xl font-bold") {{ title }}
 
-  Transition(
-    enter-from-class="opacity-0"
-    enter-active-class="transition ease-out duration-300"
-    enter-to-class="opacity-100"
-    leave-from-class="opacity-100"
-    leave-active-class="z-10 absolute inset-x-0 transition ease-in duration-300"
-    leave-to-class="opacity-0"
-    tag="div"
-    class="relative"
-  )
-    div(
-      v-if="total === 0"
-      class="flex py-32 text-center text-2xl font-bold text-gray-400 justify-center"
+  div(class="relative")
+    Transition(
+      enter-from-class="opacity-0"
+      enter-active-class="transition ease-out duration-300"
+      enter-to-class="opacity-100"
+      leave-from-class="opacity-100"
+      leave-active-class="z-10 inset-x-0 absolute transition ease-in duration-300"
+      leave-to-class="opacity-0"
     )
-        BaseLoader(v-if="loading")/
-        span(v-else) No Data
-
-    div(v-else)
-      div(class="text-center") 第 {{ page_ }} 頁
-      div(class="mb-2 flex flex-col sm:flex-row items-center justify-between gap-2")
-        div 總共 {{ total }} 筆資料 / {{ totalPage }} 頁
-        div(class="flex items-center gap-4")
-          FormPerPageSelect(v-model="per_")
-          FormModeSelect(v-model="mode_")/
-
-      TransitionGroup(
-        enter-from-class="opacity-0 scale-0 translate-x-30px"
-        enter-active-class="transition ease-out duration-300"
-        enter-to-class
-        leave-from-class
-        leave-active-class="absolute transition ease-in duration-300"
-        leave-to-class="opacity-0 scale-0 translate-x-30px"
-        tag="div"
-        class="relative mb-8"
-        :class="{ 'grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4': mode_ === Mode.CARD, 'grid grid-cols-1 gap-4': mode_ === Mode.LIST }"
+      div(
+        v-if="total === 0"
+        class="flex py-32 text-center text-2xl font-bold text-gray-400 justify-center"
       )
-        template(v-for="user in rows" :key="user.login.uuid")
-          UserCard(
-            v-if="mode_ === Mode.CARD"
-            v-bind="user"
-            @on-click-favor="onClickFavor($event)"
-            @on-click-profile="onClickProfile($event)"
-          )/
-          UserList(
-            v-else-if="mode_ === Mode.LIST"
-            v-bind="user"
-            @on-click-favor="onClickFavor($event)"
-            @on-click-profile="onClickProfile($event)"
-          )/
+          BaseLoader(v-if="loading")/
+          span(v-else) No Data
 
-      BasePagination(
-        v-model="page_"
-        :total-page="totalPage"
-      )/
+      div(v-else)
+        div(class="text-center") 第 {{ page_ }} 頁
+        div(class="mb-2 flex flex-col sm:flex-row items-center justify-between gap-2")
+          div 總共 {{ total }} 筆資料 / {{ totalPage }} 頁
+          div(class="flex items-center gap-4")
+            FormPerPageSelect(v-model="per_")
+            FormModeSelect(v-model="mode_")/
+
+        TransitionGroup(
+          enter-from-class="opacity-0 scale-0 translate-x-30px"
+          enter-active-class="transition ease-out duration-300"
+          enter-to-class
+          leave-from-class
+          leave-active-class="absolute transition ease-in duration-300"
+          leave-to-class="opacity-0 scale-0 translate-x-30px"
+          tag="div"
+          class="relative mb-8"
+          :class="{ 'grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4': mode_ === Mode.CARD, 'grid grid-cols-1 gap-4': mode_ === Mode.LIST }"
+        )
+          template(v-for="user in rows" :key="user.login.uuid")
+            UserCard(
+              v-if="mode_ === Mode.CARD"
+              v-bind="user"
+              @on-click-favor="onClickFavor($event)"
+              @on-click-profile="onClickProfile($event)"
+            )/
+            UserList(
+              v-else-if="mode_ === Mode.LIST"
+              v-bind="user"
+              @on-click-favor="onClickFavor($event)"
+              @on-click-profile="onClickProfile($event)"
+            )/
+
+        BasePagination(
+          v-model="page_"
+          :total-page="totalPage"
+        )/
 </template>
