@@ -1,6 +1,7 @@
 export type ColorVariant = 'success' | 'danger' | 'warning' | 'info'
 
 export interface Pair {
+  id: number
   path: string
   value: string
 }

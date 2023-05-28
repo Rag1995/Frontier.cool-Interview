@@ -1,15 +1,18 @@
 import type { Pair, Tree } from '@/types'
 
 export const useTreeStore = defineStore('tree', () => {
+  const { count, inc } = useCounter()
+
   // 使用者輸入的 key-value pair
   const pairs = reactive<Pair[]>([
-    { path: 'grand.parent1.child1', value: '12' },
-    { path: 'grand.parent2.child1', value: '34' },
-    { path: 'grand.parent1.child2', value: '56' },
+    { id: -3, path: 'grand.parent1.child1', value: '12' },
+    { id: -2, path: 'grand.parent2.child1', value: '34' },
+    { id: -1, path: 'grand.parent1.child2', value: '56' },
   ])
   // 新增 pair
   const addPair = () => {
-    pairs.push({ path: '', value: '' })
+    pairs.push({ id: count.value, path: '', value: '' })
+    inc()
   }
   // 移除 pair
   const removePair = (index: number) => {
